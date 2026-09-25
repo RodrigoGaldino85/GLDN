@@ -1,0 +1,12 @@
+.eyebrow {
+  display: inline-flex; align-items: center; height: var(--size-eyebrow); padding: 0 var(--space-4);
+  border-radius: var(--radius-pill); border: var(--border-hairline) solid;
+  font-family: var(--font-body); font-weight: var(--fw-medium); font-size: var(--fs-label-s);
+  letter-spacing: var(--ls-label); text-transform: uppercase; white-space: nowrap;
+}
+.gold { color: var(--text-accent); border-color: var(--border-accent); }
+.neutral { color: var(--text-body); border-color: var(--border-default); }
+/* Long eyebrows wrap instead of overflowing on narrow screens. */
+@media (max-width: 480px) {
+  .eyebrow { height: auto; min-height: var(--size-eyebrow); padding: var(--space-1_5) var(--space-4); white-space: normal; line-height: var(--lh-snug); max-width: 100%; }
+}

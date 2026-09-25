@@ -1,0 +1,8 @@
+.counter {
+  display: flex; align-items: center; gap: var(--space-4);
+  font-family: var(--font-body); font-size: var(--fs-label); letter-spacing: var(--ls-label);
+  text-transform: uppercase; color: var(--text-body);
+}
+.index { color: var(--text-strong); font-weight: var(--fw-semibold); letter-spacing: var(--ls-index); }
+.line { width: var(--size-counter-line); height: var(--border-hairline); background: var(--border-default); }
+.label { font-weight: var(--fw-medium); }

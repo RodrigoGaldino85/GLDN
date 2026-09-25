@@ -1,0 +1,40 @@
+.plan { display: flex; flex-direction: column; gap: var(--space-5_5); height: 100%; }
+.top { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-3); }
+.numeral { font-family: var(--font-display); font-weight: var(--fw-bold); font-size: var(--fs-numeral-s); line-height: var(--lh-numeral); color: var(--ghost-numeral); }
+.featured .numeral { color: var(--numeral-accent-strong); }
+.meta { display: flex; flex-direction: column; align-items: flex-end; gap: var(--space-2_5); }
+.badge {
+  height: var(--size-badge); padding: 0 var(--space-2_5); display: inline-flex; align-items: center;
+  border-radius: var(--radius-pill); border: var(--border-hairline) solid var(--border-accent-strong);
+  color: var(--text-accent); font-size: var(--fs-badge); font-weight: var(--fw-semibold); letter-spacing: var(--ls-badge); text-transform: uppercase;
+}
+.kicker { font-size: var(--fs-micro-s); font-weight: var(--fw-medium); letter-spacing: var(--ls-field); text-transform: uppercase; color: var(--text-body); text-align: right; max-width: var(--measure-kicker); line-height: var(--lh-lead); }
+.head { padding-bottom: var(--space-5); border-bottom: var(--border-hairline) solid var(--border-default); }
+.name { font-family: var(--font-body); font-weight: var(--fw-semibold); font-size: var(--fs-h4); letter-spacing: var(--ls-caps-l); text-transform: uppercase; color: var(--text-strong); }
+.featured .name { color: var(--text-accent); }
+.audience { margin-top: var(--space-1_5); font-weight: var(--fw-light); font-size: var(--fs-card); color: var(--text-body); }
+.list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-3_5); flex: 1; }
+.item { display: flex; gap: var(--space-3_5); align-items: center; font-size: var(--fs-ui); color: var(--text-strong); font-weight: var(--fw-regular); }
+.itemIcon { color: var(--text-body); }
+.featured .itemIcon { color: var(--accent); }
+
+/* Hover lights the card up like the featured tier (gold numeral, name, icons, border, halo, primary-looking CTA). */
+.numeral, .name, .itemIcon { transition: color var(--dur-base) var(--ease-out); }
+.lit { transition: transform var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out); }
+.lit:hover, .lit[data-state="hover"] { border-color: var(--border-accent); box-shadow: var(--shadow-card), var(--shadow-glow-card); }
+.lit:hover .numeral, .lit[data-state="hover"] .numeral { color: var(--numeral-accent-strong); }
+.lit:hover .name, .lit[data-state="hover"] .name { color: var(--text-accent); }
+.lit:hover .itemIcon, .lit[data-state="hover"] .itemIcon { color: var(--accent); }
+.lit:hover [data-variant="secondary"], .lit[data-state="hover"] [data-variant="secondary"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+
+/* While another tier in the same row is hovered, the featured tier steps back. */
+:has(> .lit:hover) > .featured:not(:hover),
+:has(> * > .lit:hover) > * > .featured:not(:hover) { border-color: var(--border-subtle); box-shadow: var(--shadow-card); }
+:has(> .lit:hover) > .featured:not(:hover) .numeral,
+:has(> * > .lit:hover) > * > .featured:not(:hover) .numeral { color: var(--ghost-numeral); }
+:has(> .lit:hover) > .featured:not(:hover) .name,
+:has(> * > .lit:hover) > * > .featured:not(:hover) .name { color: var(--text-strong); }
+:has(> .lit:hover) > .featured:not(:hover) .itemIcon,
+:has(> * > .lit:hover) > * > .featured:not(:hover) .itemIcon { color: var(--text-body); }
+:has(> .lit:hover) > .featured:not(:hover) [data-variant="primary"],
+:has(> * > .lit:hover) > * > .featured:not(:hover) [data-variant="primary"] { background: transparent; color: var(--text-accent); border-color: var(--border-accent); box-shadow: none; }

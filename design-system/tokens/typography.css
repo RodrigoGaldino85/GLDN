@@ -1,0 +1,85 @@
+/*
+ * GLDN Tech — typography tokens. Source of truth: /DESIGN.md (`typography`).
+ * Cinzel (display) + Montserrat (body/UI) per the Altaza reference;
+ * Space Grotesk + IBM Plex Sans reserved for logotype work.
+ */
+:root {
+  --font-display: 'Cinzel', Georgia, 'Times New Roman', serif;
+  --font-body: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-logo: 'Space Grotesk', 'Poppins', Arial, sans-serif;
+  --font-logo-sub: 'IBM Plex Sans', Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace; /* docs/code only */
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* Display & headings (Cinzel) */
+  --fs-display-xl: 88px;
+  --fs-display-l: 68px;
+  --fs-h1: 52px;
+  --fs-h2: 38px;
+  --fs-h3: 26px;
+  --fs-h4: 20px;
+
+  /* Body & UI (Montserrat) */
+  --fs-body-l: 19px;
+  --fs-ui-l: 17px;          /* accordion question */
+  --fs-body: 16px;
+  --fs-card-l: 15.5px;      /* step / accordion body */
+  --fs-card: 15px;          /* card titles & descriptions, fields */
+  --fs-ui: 14.5px;          /* plan feature list, footer links */
+  --fs-body-s: 14px;
+  --fs-ui-s: 13.5px;        /* large button, large tag */
+  --fs-caption: 12.5px;
+  --fs-label: 12px;
+  --fs-label-s: 11.5px;     /* eyebrow, field label, sm button */
+  --fs-micro: 11px;
+  --fs-micro-s: 10.5px;
+  --fs-badge: 10px;
+  --fs-title-s: 18px;       /* step card title */
+
+  /* Numerals & stats (Cinzel) */
+  --fs-numeral: 132px;
+  --fs-numeral-m: 112px;
+  --fs-numeral-s: 80px;
+  --fs-stat-l: 96px;
+  --fs-stat: 56px;
+  --fs-stat-s: 40px;
+  --fs-ghost-wordmark: min(34vw, 440px);
+
+  --lh-numeral: .9;
+  --lh-tight: 1.05;
+  --lh-title: 1.1;
+  --lh-heading: 1.15;
+  --lh-snug: 1.4;
+  --lh-card: 1.55;
+  --lh-lead: 1.6;
+  --lh-body: 1.65;
+
+  --ls-numeral: -.01em;
+  --ls-body: .005em;
+  --ls-heading: .01em;
+  --ls-display: .02em;
+  --ls-caps-s: .08em;       /* feature card title */
+  --ls-caps: .1em;          /* step title */
+  --ls-index: .12em;        /* section counter index */
+  --ls-caps-l: .14em;       /* plan name */
+  --ls-button: .18em;
+  --ls-badge: .22em;
+  --ls-field: .24em;        /* field labels, nav links */
+  --ls-label: .28em;
+  --ls-footer: .3em;
+  --ls-label-wide: .42em;
+
+  /* Semantic shorthands */
+  --type-display: var(--fw-bold) var(--fs-display-l)/var(--lh-tight) var(--font-display);
+  --type-h1: var(--fw-bold) var(--fs-h1)/var(--lh-heading) var(--font-display);
+  --type-h2: var(--fw-bold) var(--fs-h2)/var(--lh-heading) var(--font-display);
+  --type-h3: var(--fw-semibold) var(--fs-h3)/var(--lh-heading) var(--font-display);
+  --type-body: var(--fw-light) var(--fs-body)/var(--lh-body) var(--font-body);
+  --type-body-l: var(--fw-light) var(--fs-body-l)/var(--lh-body) var(--font-body);
+  --type-label: var(--fw-medium) var(--fs-label)/1 var(--font-body);
+}

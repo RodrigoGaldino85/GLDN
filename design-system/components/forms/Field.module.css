@@ -1,0 +1,20 @@
+.field { display: flex; flex-direction: column; gap: var(--space-2_5); }
+.label { font-family: var(--font-body); font-weight: var(--fw-medium); font-size: var(--fs-label-s); letter-spacing: var(--ls-field); text-transform: uppercase; color: var(--text-body); }
+.required { color: var(--text-accent); }
+.hint { font-size: var(--fs-caption); color: var(--text-muted); }
+.error { font-size: var(--fs-caption); color: var(--status-danger); }
+
+/* Shared control skin (input, textarea, select) */
+.control {
+  width: 100%; background: var(--bg-inset); color: var(--text-strong);
+  border: var(--border-hairline) solid var(--border-default); border-radius: var(--radius-field);
+  font-family: var(--font-body); font-size: var(--fs-card); font-weight: var(--fw-regular); outline: none;
+  transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+}
+.control::placeholder { color: var(--text-muted); }
+.control:hover:not(:disabled):not(:focus), .control[data-state="hover"] { border-color: var(--border-accent); }
+.control:focus, .control[data-state="focus"] { border-color: var(--border-accent-strong); box-shadow: var(--focus-ring); }
+.control[aria-invalid="true"] { border-color: var(--status-danger); box-shadow: none; }
+.control:disabled { opacity: var(--opacity-disabled-field); cursor: not-allowed; }
+.single { height: var(--size-field); padding: 0 var(--space-4); }
+.multi { padding: var(--space-3_5) var(--space-4); line-height: var(--lh-card); resize: vertical; }

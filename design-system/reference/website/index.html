@@ -1,0 +1,335 @@
+<!-- @dsCard group="Website" viewport="1440x900" name="GLDN Tech — Website" subtitle="Home, Soluções, Capacitação, Contato (click-through)" -->
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GLDN Tech — Microsoft Copilot & IA corporativa</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>html{scroll-behavior:auto}body{min-height:100vh}</style></head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../_runtime/_ds_bundle.js"></script>
+<script type="text/babel" data-source="Shared.jsx">
+const DS = window.GLDNTechDesignSystem_247012;
+const { Logo, Icon, SectionCounter } = DS;
+function Glow({ x = '80%', y = '20%', size = 900, color = 'rgba(224,138,46,.20)' }) {
+  return <div aria-hidden style={{ position: 'absolute', left: x, top: y, width: size, height: size, transform: 'translate(-50%,-50%)', background: 'radial-gradient(closest-side,' + color + ',transparent)', pointerEvents: 'none' }} />;
+}
+function Section({ children, id, glow, counter, style, inner }) {
+  return (
+    <section id={id} style={{ position: 'relative', overflow: 'hidden', padding: 'var(--section-y) 0', ...style }}>
+      {glow}
+      <div style={{ position: 'relative', maxWidth: 'var(--container-max)', margin: '0 auto', padding: '0 var(--gutter)', ...inner }}>
+        {counter && <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 40 }}><SectionCounter index={counter[0]} label={counter[1]} /></div>}
+        {children}
+      </div>
+    </section>
+  );
+}
+function TrackedLine({ items, style }) {
+  return <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px 18px', alignItems: 'center', fontSize: 11.5, fontWeight: 500, letterSpacing: '.3em', textTransform: 'uppercase', color: 'var(--text-muted)', ...style }}>
+    {items.map((t, i) => <React.Fragment key={t}>{i > 0 && <span style={{ color: 'var(--text-faint)' }}>|</span>}<span>{t}</span></React.Fragment>)}
+  </div>;
+}
+function GoldRule({ center, style }) { return <div style={{ width: 48, height: 2, background: 'var(--accent)', margin: center ? '0 auto' : 0, ...style }} />; }
+function Footer({ go }) {
+  const col = (title, links) => <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+    <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: '.28em', textTransform: 'uppercase', color: 'var(--text-accent)' }}>{title}</span>
+    {links.map(([l, p]) => <a key={l} href="#" onClick={e => { e.preventDefault(); p && go(p); }} style={{ color: 'var(--text-body)', fontSize: 14.5, fontWeight: 300 }}>{l}</a>)}
+  </div>;
+  return (
+    <footer style={{ borderTop: '1px solid var(--border-subtle)', background: 'var(--bg-page-deep)' }}>
+      <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', padding: '72px var(--gutter) 40px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(180px,1fr))', gap: 40 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 20, gridColumn: 'span 2', maxWidth: 360 }}>
+          <Logo height={38} />
+          <p style={{ margin: 0, fontWeight: 300, fontSize: 15, lineHeight: 1.65 }}>Consultoria especializada em Microsoft Copilot e IA corporativa. Do diagnóstico à adoção, com governança e resultado.</p>
+        </div>
+        {col('Soluções', [['Copilot para Microsoft 365', 'solucoes'], ['Copilot Studio & agentes', 'solucoes'], ['Governança de IA', 'solucoes']])}
+        {col('Empresa', [['Capacitação', 'capacitacao'], ['Método', 'home'], ['Contato', 'contato']])}
+      </div>
+      <div style={{ maxWidth: 'var(--container-max)', margin: '0 auto', padding: '24px var(--gutter) 40px', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, borderTop: '1px solid var(--border-subtle)' }}>
+        <TrackedLine items={['GLDN Tech', '2026']} />
+        <TrackedLine items={['Diagnóstico', 'Implantação', 'Capacitação', 'Resultado']} />
+      </div>
+    </footer>
+  );
+}
+Object.assign(window, { Glow, Section, TrackedLine, GoldRule, Footer });
+
+</script>
+<script type="text/babel" data-source="Home.jsx">
+const { Button, SectionHeading, FeatureCard, StepCard, StatBlock, PlanCard, Accordion, Icon: HIcon, Logo: HLogo, Eyebrow } = window.GLDNTechDesignSystem_247012;
+function HubDiagram() {
+  const node = (pos, icon, title, desc) => <div style={{ position: 'absolute', ...pos, width: 250 }}><FeatureCard icon={icon} title={title} description={desc} /></div>;
+  return (
+    <div style={{ position: 'relative', width: 560, height: 560, flex: 'none', margin: '0 auto' }}>
+      <div style={{ position: 'absolute', inset: 40, borderRadius: '50%', border: '1px dashed rgba(212,175,55,.28)' }} />
+      <div style={{ position: 'absolute', inset: 130, borderRadius: '50%', border: '1px dashed rgba(212,175,55,.2)' }} />
+      <div style={{ position: 'absolute', left: '50%', top: '50%', width: 180, height: 180, transform: 'translate(-50%,-50%)', borderRadius: '50%', border: '1px solid var(--border-accent-strong)', background: 'radial-gradient(closest-side,rgba(212,175,55,.18),rgba(11,11,11,.9))', boxShadow: '0 0 80px -10px rgba(212,175,55,.45)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <HLogo wordmark={false} height={84} />
+      </div>
+      {node({ left: 155, top: 0 }, 'bot', 'Copilot', 'Microsoft 365 no dia a dia.')}
+      {node({ left: 0, top: 215 }, 'workflow', 'Agentes', 'Processos automatizados.')}
+      {node({ right: 0, top: 215 }, 'shield-check', 'Governança', 'Dados seguros e auditáveis.')}
+      {node({ left: 155, bottom: 0 }, 'graduation-cap', 'Pessoas', 'Capacitação contínua.')}
+    </div>
+  );
+}
+function Hero({ go }) {
+  return (
+    <Section style={{ paddingTop: 96 }} glow={<><Glow x="78%" y="45%" size={1100} /><Glow x="0%" y="100%" size={700} color="rgba(212,175,55,.10)" /></>}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 48, alignItems: 'center' }}>
+        <div style={{ flex: '1 1 460px', display: 'flex', flexDirection: 'column', gap: 40 }}>
+          <SectionHeading as="h1" size="xl" eyebrow="Microsoft Copilot · IA corporativa" title="IA que eleva" highlight="o potencial do seu time." lead="Transformamos suas licenças de Microsoft Copilot em produtividade real — com implantação segura, agentes sob medida e capacitação para cada área." />
+          <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
+            <Button size="lg" iconRight="arrow-right" onClick={() => go('contato')}>Agendar diagnóstico</Button>
+            <Button size="lg" variant="ghost" onClick={() => go('solucoes')}>Ver soluções</Button>
+          </div>
+          <TrackedLine items={['Diagnóstico', 'Implantação', 'Capacitação', 'Resultado']} style={{ marginTop: 24 }} />
+        </div>
+        <div style={{ flex: '1 1 560px', overflow: 'hidden' }}><HubDiagram /></div>
+      </div>
+    </Section>
+  );
+}
+function Challenge() {
+  return (
+    <Section counter={['01', 'O desafio']} glow={<Glow x="10%" y="40%" size={800} />}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,420px),1fr))', gap: 56, alignItems: 'start' }}>
+        <SectionHeading eyebrow="O desafio" title="Licenças compradas." highlight="Uso que não decola." lead="A maioria das empresas ativa o Copilot e espera que a adoção aconteça sozinha. Sem método, a IA vira mais uma ferramenta esquecida." />
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+          <FeatureCard icon="circle-dashed" title="Licenças ociosas" description="Investimento ativo, uso esporádico e sem métrica de retorno." />
+          <FeatureCard icon="circle-help" title="Times sem confiança" description="Colaboradores não sabem o que pedir — nem quando confiar na resposta." />
+          <FeatureCard icon="lock-open" title="Governança improvisada" description="Permissões antigas expõem dados que o Copilot passa a encontrar." />
+        </div>
+      </div>
+    </Section>
+  );
+}
+function Solutions({ go }) {
+  const items = [['bot', 'Copilot para Microsoft 365', 'Word, Excel, Outlook, Teams e PowerPoint trabalhando a favor de cada função.'], ['workflow', 'Copilot Studio & agentes', 'Agentes que conhecem seus processos, sistemas e políticas internas.'], ['shield-check', 'Governança & segurança', 'Revisão de permissões, rótulos de sensibilidade e políticas de uso.'], ['graduation-cap', 'Capacitação contínua', 'Trilhas por área, prompts de referência e champions internos.']];
+  return (
+    <Section counter={['02', 'Soluções']}>
+      <SectionHeading align="center" title="Uma consultoria." highlight="Toda a jornada da IA." lead="Da estratégia ao hábito diário — cobrimos cada etapa para que o investimento em IA se pague." />
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(240px,1fr))', gap: 16, marginTop: 64 }}>
+        {items.map(([i, t, d]) => <div key={t} onClick={() => go('solucoes')} style={{ cursor: 'pointer' }}><FeatureCard layout="stack" icon={i} title={t} description={d} style={{ height: '100%' }} /></div>)}
+      </div>
+    </Section>
+  );
+}
+function Method() {
+  const steps = [['01', 'Diagnóstico', 'Maturidade, processos, dados e licenças.'], ['02', 'Implantação', 'Governança, piloto e casos de uso prioritários.'], ['03', 'Capacitação', 'Trilhas práticas por área e por função.'], ['04', 'Evolução', 'Métricas de uso, novos agentes e melhoria contínua.']];
+  const [active, setActive] = React.useState(0);
+  return (
+    <Section counter={['03', 'Método']} glow={<><Glow x="50%" y="100%" size={1000} /></>}>
+      <SectionHeading align="center" title="Um ciclo contínuo" highlight="do piloto à escala." lead="Cada etapa alimenta a próxima — e a IA fica mais útil a cada mês." />
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(230px,1fr))', gap: 16, marginTop: 64 }}>
+        {steps.map(([n, t, d], i) => <div key={n} onMouseEnter={() => setActive(i)}><StepCard number={n} title={t} description={d} active={i === active} style={{ height: '100%' }} /></div>)}
+      </div>
+      <div style={{ marginTop: 56, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 20 }}><GoldRule center /><TrackedLine items={['Sempre medindo, sempre evoluindo.']} style={{ letterSpacing: '.42em' }} /></div>
+    </Section>
+  );
+}
+function Impact() {
+  return (
+    <Section counter={['04', 'Impacto']} glow={<Glow x="50%" y="55%" size={1200} />}>
+      <SectionHeading align="center" title="Menos trabalho manual." highlight="Mais tempo para decidir." />
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(220px,1fr))', gap: 40, marginTop: 72 }}>
+        <StatBlock value="+30%" label="Adoção ativa" description="Usuários que usam o Copilot toda semana." />
+        <StatBlock size="lg" value="8h" label="Por pessoa / mês" description="Tempo devolvido em tarefas repetitivas." />
+        <StatBlock value="6 sem." label="Até o piloto" description="Do diagnóstico ao primeiro caso de uso em produção." />
+      </div>
+      <p style={{ marginTop: 48, textAlign: 'center', fontSize: 12.5, color: 'var(--text-faint)' }}>Métricas ilustrativas para fins de apresentação.</p>
+    </Section>
+  );
+}
+function Plans({ go }) {
+  return (
+    <Section counter={['05', 'Formatos']}>
+      <SectionHeading title="Comece do seu ponto." highlight="Escale no seu ritmo." lead="Três formatos de projeto. O mesmo compromisso com resultado." />
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: 16, marginTop: 56, alignItems: 'stretch' }}>
+        <PlanCard number="01" name="Essencial" audience="Para quem está começando." kicker="Um começo sólido" features={[{ icon: 'search', label: 'Diagnóstico de maturidade' }, { icon: 'shield-check', label: 'Revisão de governança' }, { icon: 'presentation', label: 'Workshop executivo' }]} cta="Quero começar" onCta={() => go('contato')} />
+        <PlanCard number="02" name="Adoção" audience="Para times prontos para escalar." kicker="Mais impacto" featured badge="Mais escolhido" features={[{ icon: 'rocket', label: 'Piloto com casos de uso' }, { icon: 'graduation-cap', label: 'Trilhas por área' }, { icon: 'users', label: 'Programa de champions' }, { icon: 'bar-chart-3', label: 'Painel de adoção' }]} cta="Falar com especialista" onCta={() => go('contato')} />
+        <PlanCard number="03" name="Enterprise" audience="Para ecossistemas complexos." kicker="Sob medida" features={[{ icon: 'workflow', label: 'Agentes com Copilot Studio' }, { icon: 'plug', label: 'Integrações com seus sistemas' }, { icon: 'headset', label: 'Squad dedicado' }]} cta="Montar projeto" onCta={() => go('contato')} />
+      </div>
+    </Section>
+  );
+}
+function Faq() {
+  return (
+    <Section counter={['06', 'Perguntas']}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,360px),1fr))', gap: 56 }}>
+        <SectionHeading size="md" title="Dúvidas" highlight="frequentes." lead="Não encontrou sua pergunta? Fale com a gente." />
+        <div style={{ gridColumn: 'span 2', minWidth: 0 }}><Accordion items={[
+          { question: 'O Copilot acessa dados que o colaborador não pode ver?', answer: 'Não. O Copilot respeita as permissões do Microsoft 365 — por isso toda implantação começa revisando quem tem acesso a quê.' },
+          { question: 'Quanto tempo leva para ver resultado?', answer: 'Um piloto bem desenhado entrega os primeiros casos de uso em produção em cerca de seis semanas.' },
+          { question: 'Vocês capacitam áreas não técnicas?', answer: 'Sim. As trilhas são desenhadas por função — jurídico, financeiro, comercial, RH — com exemplos do dia a dia de cada time.' },
+          { question: 'Precisamos já ter licenças do Copilot?', answer: 'Não. O diagnóstico ajuda a definir quantas licenças fazem sentido e para quem, antes de qualquer compra.' }]} /></div>
+      </div>
+    </Section>
+  );
+}
+function FinalCta({ go }) {
+  return (
+    <Section style={{ borderTop: '1px solid var(--border-subtle)' }} glow={<>
+      <div aria-hidden style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%,-50%)', fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 'min(34vw,440px)', lineHeight: 1, color: 'rgba(255,255,255,.035)', whiteSpace: 'nowrap', pointerEvents: 'none' }}>GLDN</div>
+      <Glow x="50%" y="60%" size={900} /></>}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 36, textAlign: 'center' }}>
+        <SectionHeading align="center" size="xl" title="Ideias complexas." highlight="Resultados claros." />
+        <Button size="lg" iconRight="arrow-right" onClick={() => go('contato')}>Agendar diagnóstico gratuito</Button>
+        <GoldRule center />
+        <TrackedLine items={['Mais clareza', 'Mais impacto']} />
+      </div>
+    </Section>
+  );
+}
+function HomePage({ go }) {
+  return <><Hero go={go} /><Challenge /><Solutions go={go} /><Method /><Impact /><Plans go={go} /><Faq /><FinalCta go={go} /></>;
+}
+Object.assign(window, { HomePage, FinalCta });
+
+</script>
+<script type="text/babel" data-source="SolutionsPage.jsx">
+const { SectionHeading: SH, Tag: STag, GlassCard: SGlass, Icon: SIcon, Button: SBtn, FeatureCard: SFeat } = window.GLDNTechDesignSystem_247012;
+const SOLUTIONS = {
+  m365: { tab: 'Copilot para Microsoft 365', title: 'O Copilot dentro', hi: 'de cada aplicativo.', lead: 'Configuramos, validamos e ensinamos o Copilot onde o trabalho já acontece.', apps: ['Word', 'Excel', 'PowerPoint', 'Outlook', 'Teams', 'Loop'],
+    feats: [['file-text', 'Documentos em minutos', 'Rascunhos, resumos e revisões a partir dos seus arquivos.'], ['mail', 'Caixa de entrada sob controle', 'Resumo de threads e respostas no tom certo.'], ['table', 'Análises sem fórmula', 'Perguntas em linguagem natural sobre planilhas.'], ['video', 'Reuniões que viram ação', 'Atas, decisões e próximos passos automáticos.']] },
+  studio: { tab: 'Copilot Studio & agentes', title: 'Agentes que conhecem', hi: 'o seu negócio.', lead: 'Criamos agentes com Copilot Studio conectados às suas bases, sistemas e políticas.', apps: ['SharePoint', 'Dataverse', 'Power Automate', 'ServiceNow', 'SAP'],
+    feats: [['headset', 'Atendimento interno', 'RH, TI e jurídico respondendo 24/7 com fontes oficiais.'], ['workflow', 'Fluxos automatizados', 'Aprovações e rotinas acionadas por conversa.'], ['database', 'Conhecimento conectado', 'Respostas baseadas nos documentos certos.'], ['gauge', 'Monitoramento', 'Uso, custo e qualidade das respostas em um painel.']] },
+  gov: { tab: 'Governança & segurança', title: 'IA com segurança', hi: 'desde o primeiro dia.', lead: 'Revisamos permissões e políticas para que o Copilot encontre só o que deve.', apps: ['Purview', 'Entra ID', 'SharePoint', 'Defender'],
+    feats: [['shield-check', 'Revisão de acessos', 'Sites e pastas com permissões excessivas identificados.'], ['tag', 'Rótulos de sensibilidade', 'Classificação que acompanha o documento.'], ['scroll-text', 'Política de uso', 'Regras claras e comunicáveis para toda a empresa.'], ['eye', 'Auditoria', 'Rastreabilidade de prompts e respostas.']] },
+};
+function SolutionsPage({ go }) {
+  const [k, setK] = React.useState('m365');
+  const s = SOLUTIONS[k];
+  return (
+    <>
+      <Section style={{ paddingBottom: 48 }} glow={<Glow x="85%" y="10%" size={1000} />}>
+        <SH as="h1" size="xl" eyebrow="Soluções" title="Tudo o que a IA precisa" highlight="para dar certo." lead="Escolha uma frente para ver como trabalhamos." />
+        <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 48 }}>
+          {Object.entries(SOLUTIONS).map(([key, v]) => <STag key={key} active={k === key} onClick={() => setK(key)} style={{ height: 40, padding: '0 18px', fontSize: 13.5 }}>{v.tab}</STag>)}
+        </div>
+      </Section>
+      <Section style={{ paddingTop: 24 }} glow={<Glow x="20%" y="60%" size={900} />}>
+        <SGlass glow padding="clamp(28px,5vw,56px)" radius={24}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,380px),1fr))', gap: 48 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
+              <SH size="md" title={s.title} highlight={s.hi} lead={s.lead} />
+              <div>
+                <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: '.28em', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: 12 }}>Onde atuamos</div>
+                <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>{s.apps.map(a => <STag key={a}>{a}</STag>)}</div>
+              </div>
+              <div><SBtn iconRight="arrow-right" onClick={() => go('contato')}>Conversar sobre {s.tab.split(' ')[0]}</SBtn></div>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(220px,1fr))', gap: 14 }}>
+              {s.feats.map(([i, t, d]) => <SFeat key={t} layout="stack" icon={i} title={t} description={d} />)}
+            </div>
+          </div>
+        </SGlass>
+      </Section>
+      <FinalCta go={go} />
+    </>
+  );
+}
+Object.assign(window, { SolutionsPage });
+
+</script>
+<script type="text/babel" data-source="TrainingPage.jsx">
+const { SectionHeading: TH, Tag: TTag, StepCard: TStep, FeatureCard: TFeat } = window.GLDNTechDesignSystem_247012;
+const TRACKS = {
+  Liderança: [['01', 'Visão estratégica', 'Onde a IA gera valor no seu setor.'], ['02', 'Decisão com dados', 'Copilot para análises e briefings.'], ['03', 'Cultura de IA', 'Como liderar a adoção pelo exemplo.']],
+  Gestores: [['01', 'Rotina assistida', 'Reuniões, e-mails e relatórios com Copilot.'], ['02', 'Times aumentados', 'Casos de uso por área.'], ['03', 'Medir adoção', 'Indicadores de uso e impacto.']],
+  Operações: [['01', 'Primeiros prompts', 'Como pedir, revisar e confiar.'], ['02', 'Documentos & planilhas', 'Word e Excel no dia a dia.'], ['03', 'Automação simples', 'Fluxos com Power Automate.']],
+  TI: [['01', 'Governança', 'Permissões, rótulos e políticas.'], ['02', 'Copilot Studio', 'Construindo o primeiro agente.'], ['03', 'Operação', 'Monitoramento, custo e suporte.']],
+};
+function TrainingPage({ go }) {
+  const [t, setT] = React.useState('Gestores');
+  return (
+    <>
+      <Section glow={<Glow x="15%" y="20%" size={1000} />}>
+        <TH as="h1" size="xl" eyebrow="Capacitação" title="Pessoas preparadas." highlight="IA que vira hábito." lead="Trilhas práticas por função, com exemplos reais do dia a dia de cada time — presenciais, ao vivo ou sob demanda." />
+      </Section>
+      <Section style={{ paddingTop: 0 }} counter={['01', 'Trilhas']}>
+        <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 32 }}>
+          {Object.keys(TRACKS).map(k => <TTag key={k} active={k === t} onClick={() => setT(k)} style={{ height: 40, padding: '0 20px', fontSize: 13.5 }}>{k}</TTag>)}
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(260px,1fr))', gap: 16 }}>
+          {TRACKS[t].map(([n, ti, d], i) => <TStep key={t + n} number={n} title={ti} description={d} active={i === 0} />)}
+        </div>
+      </Section>
+      <Section counter={['02', 'Formatos']} glow={<Glow x="80%" y="50%" size={900} />}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(240px,1fr))', gap: 16 }}>
+          <TFeat layout="stack" icon="presentation" title="Workshops presenciais" description="Imersões de meio período com exercícios em ambiente real." />
+          <TFeat layout="stack" icon="monitor-play" title="Turmas ao vivo" description="Sessões online curtas, gravadas e com material de apoio." />
+          <TFeat layout="stack" icon="book-open" title="Biblioteca de prompts" description="Modelos validados por área, prontos para usar." />
+          <TFeat layout="stack" icon="users" title="Programa de champions" description="Multiplicadores internos que sustentam a adoção." />
+        </div>
+      </Section>
+      <FinalCta go={go} />
+    </>
+  );
+}
+Object.assign(window, { TrainingPage });
+
+</script>
+<script type="text/babel" data-source="ContactPage.jsx">
+const { SectionHeading: CH, Input, Select, Textarea, Checkbox, Button: CBtn, GlassCard: CGlass, Icon: CIcon } = window.GLDNTechDesignSystem_247012;
+function ContactPage({ go }) {
+  const [sent, setSent] = React.useState(false);
+  const [email, setEmail] = React.useState('');
+  const [err, setErr] = React.useState('');
+  const submit = e => { e.preventDefault(); if (!/.+@.+\..+/.test(email)) { setErr('Informe um e-mail corporativo válido'); return; } setSent(true); };
+  const info = [['mail', 'contato@gldn.tech'], ['map-pin', 'São Paulo · Atendimento em todo o Brasil'], ['clock', 'Resposta em até 1 dia útil']];
+  return (
+    <Section glow={<><Glow x="85%" y="30%" size={1000} /><Glow x="0%" y="90%" size={700} color="rgba(212,175,55,.10)" /></>}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,400px),1fr))', gap: 64, alignItems: 'start' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 40 }}>
+          <CH as="h1" size="lg" eyebrow="Contato" title="Vamos conversar" highlight="sobre o seu momento." lead="Conte onde sua empresa está com IA. Em até um dia útil, um especialista retorna com os próximos passos." />
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
+            {info.map(([i, t]) => <div key={t} style={{ display: 'flex', gap: 14, alignItems: 'center', fontSize: 15, color: 'var(--text-strong)' }}><CIcon name={i} size={20} color="var(--accent)" />{t}</div>)}
+          </div>
+        </div>
+        <CGlass glow padding="clamp(24px,4vw,44px)" radius={20}>
+          {sent ? (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 24, alignItems: 'flex-start', padding: '24px 0' }}>
+              <div style={{ width: 56, height: 56, borderRadius: '50%', border: '1px solid var(--border-accent-strong)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><CIcon name="check" size={26} color="var(--accent)" /></div>
+              <CH size="sm" title="Mensagem recebida." highlight="Falamos em breve." lead={'Enviamos uma confirmação para ' + email + '.'} />
+              <CBtn variant="secondary" onClick={() => { setSent(false); go('home'); }}>Voltar ao início</CBtn>
+            </div>
+          ) : (
+            <form onSubmit={submit} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(200px,1fr))', gap: 22 }}>
+              <Input label="Nome" placeholder="Seu nome" required />
+              <Input label="E-mail corporativo" type="email" placeholder="voce@empresa.com.br" value={email} onChange={e => { setEmail(e.target.value); setErr(''); }} error={err} required />
+              <Input label="Empresa" placeholder="Nome da empresa" />
+              <Select label="Colaboradores" placeholder="Selecione" options={['1–50', '51–500', '501–5.000', '5.000+']} />
+              <Select label="Interesse" placeholder="Selecione" options={['Copilot para Microsoft 365', 'Copilot Studio & agentes', 'Governança de IA', 'Capacitação']} style={{ gridColumn: '1 / -1' }} />
+              <Textarea label="Mensagem" rows={4} placeholder="Qual processo você quer acelerar com IA?" style={{ gridColumn: '1 / -1' }} />
+              <Checkbox defaultChecked label="Aceito receber comunicações da GLDN Tech." style={{ gridColumn: '1 / -1' }} />
+              <div style={{ gridColumn: '1 / -1' }}><CBtn type="submit" size="lg" fullWidth iconRight="arrow-right">Enviar mensagem</CBtn></div>
+            </form>
+          )}
+        </CGlass>
+      </div>
+    </Section>
+  );
+}
+Object.assign(window, { ContactPage });
+
+</script>
+<script type="text/babel">
+const { NavBar } = window.GLDNTechDesignSystem_247012;
+const PAGES = { home: HomePage, solucoes: SolutionsPage, capacitacao: TrainingPage, contato: ContactPage };
+const LINKS = [['Soluções', 'solucoes'], ['Capacitação', 'capacitacao'], ['Contato', 'contato']];
+function App() {
+  const [page, setPage] = React.useState(() => localStorage.getItem('gldn-kit-page') || 'home');
+  const go = p => { setPage(p); localStorage.setItem('gldn-kit-page', p); window.scrollTo(0, 0); };
+  const Page = PAGES[page] || HomePage;
+  return <>
+    <NavBar links={LINKS.map(([l, p]) => ({ label: l, active: p === page, page: p }))} onNavigate={i => go(i.page)} onLogo={() => go('home')} cta="Agendar diagnóstico" onCta={() => go('contato')} />
+    <main data-screen-label={page}><Page go={go} /></main>
+    <Footer go={go} />
+  </>;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body></html>

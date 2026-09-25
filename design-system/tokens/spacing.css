@@ -1,0 +1,81 @@
+/*
+ * GLDN Tech — spacing, sizing and radius tokens. Source of truth: /DESIGN.md
+ * (`spacing`, `rounded`). 4px base; `_5` steps are the half-steps the
+ * reference components use (e.g. --space-6_5 = 26px).
+ */
+:root {
+  --space-0: 0;
+  --space-0_5: 2px;
+  --space-1: 4px;
+  --space-1_5: 6px;
+  --space-2: 8px;
+  --space-2_5: 10px;
+  --space-3: 12px;
+  --space-3_5: 14px;
+  --space-4: 16px;
+  --space-4_5: 18px;
+  --space-5: 20px;
+  --space-5_5: 22px;
+  --space-6: 24px;
+  --space-6_5: 26px;
+  --space-7: 28px;
+  --space-7_5: 30px;
+  --space-8: 32px;
+  --space-9: 36px;
+  --space-10: 40px;
+  --space-11: 44px;
+  --space-12: 48px;
+  --space-13: 52px;
+  --space-14: 56px;
+  --space-16: 64px;
+  --space-18: 72px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+  --space-40: 160px;
+
+  --container-max: 1240px;
+  --container-narrow: 880px;
+  --measure-lead: 640px;
+  --measure-heading: 820px;
+  --measure-answer: 760px;
+  --measure-stat: 260px;
+  --measure-kicker: 140px;
+  --measure-footer-brand: 360px;
+  --measure-hub-node: 250px;
+  --size-hub: 560px;
+  --size-hub-core: 180px;
+  --inset-hub-orbit: 40px;
+  --inset-hub-orbit-inner: 130px;
+  --gutter: clamp(20px, 5vw, 64px);
+  --section-y: clamp(80px, 11vw, 160px);
+
+  /* Component sizing */
+  --size-control-sm: 38px;
+  --size-control-md: 48px;
+  --size-control-lg: 58px;
+  --size-field: 50px;
+  --size-eyebrow: 32px;
+  --size-tag: 30px;
+  --size-tag-lg: 40px;
+  --size-badge: 24px;
+  --size-checkbox: 20px;
+  --size-header: 80px;
+  --size-rule: 48px;
+  --size-rule-weight: 2px;
+  --size-counter-line: 56px;
+  --size-success-badge: 56px;
+
+  --radius-xs: 4px;
+  --radius-check: 5px;
+  --radius-sm: 8px;
+  --radius-field: 10px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-card-l: 20px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+  --radius-round: 50%;
+
+  --border-hairline: 1px;
+}

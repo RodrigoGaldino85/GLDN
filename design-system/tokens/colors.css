@@ -1,0 +1,91 @@
+/*
+ * GLDN Tech — color tokens.
+ * Source of truth: /DESIGN.md (front matter `colors`). Keep both in sync.
+ *
+ * Layer 1 — primitives (scales). Never use them directly in components.
+ * Layer 2 — semantic aliases, redefined per theme. Components use ONLY these.
+ * Dark is the brand default; light is an authored companion theme.
+ */
+:root {
+  /* Gold — from the GLDN mark */
+  --gold-50: #FBF4DC; --gold-100: #F7EBC4; --gold-200: #F0D98C; --gold-300: #E6C763; --gold-400: #DDBB4A;
+  --gold-500: #D4AF37; --gold-600: #B8962C; --gold-700: #9C7A1E; --gold-800: #6F5715; --gold-900: #3F310C;
+  --gold-highlight: #F9E27D; --gold-metal: #B8860B;
+  /* Ember — the warm amber glow (light source only, never text or fills) */
+  --ember-300: #F2B266; --ember-500: #E08A2E; --ember-700: #8A4E14;
+  /* Ink — warm near-blacks → pearl */
+  --ink-1000: #000000; --ink-950: #0B0B0B; --ink-900: #111113; --ink-850: #16161A; --ink-800: #1C1D22;
+  --ink-700: #26272C; --ink-600: #35363C; --ink-500: #55585A; --ink-400: #6E6A5E; --ink-300: #8E8A7E;
+  --ink-200: #A7A9AC; --ink-150: #C9C6BD; --ink-100: #E8E6E1; --ink-50: #F5F5F5; --white: #FFFFFF;
+  --ink-tile-stroke: #3A3A3F;
+  /* Semantic hues */
+  --green-500: #4CAF7A; --green-600: #2F8A5A; --red-500: #D05A4E; --red-600: #B5463B; --red-900: #5B0F1A; --blue-500: #7C9BD1; --blue-600: #4A6CA8; --blue-900: #0A1B2E;
+
+  /* Brand mark — circles never change; tile and wordmark follow the surface */
+  --brand-tile-on-dark: var(--ink-800);
+  --brand-tile-stroke-on-dark: var(--ink-tile-stroke);
+  --brand-tile-on-light: var(--white);
+  --brand-tile-stroke-on-light: var(--ink-100);
+  --brand-circle-1: var(--gold-200);
+  --brand-circle-2: var(--gold-500);
+  --brand-circle-3: var(--gold-700);
+  --brand-word-on-dark: var(--ink-50);
+  --brand-word-on-light: var(--ink-800);
+  --brand-sub-on-dark: var(--gold-500);
+  --brand-sub-on-light: var(--gold-600);
+}
+
+/* ---- Dark theme (default) ---- */
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-page: var(--ink-950); --bg-page-deep: var(--ink-1000); --bg-raised: var(--ink-900); --bg-inset: var(--ink-850); --bg-light: var(--ink-50);
+  --surface-card: rgba(28, 29, 34, .55); --surface-card-strong: rgba(28, 29, 34, .85); --surface-card-hover: rgba(38, 39, 44, .7);
+  --surface-accent: rgba(212, 175, 55, .08);
+  --surface-ghost-hover: rgba(255, 255, 255, .06);
+  --surface-tag: rgba(255, 255, 255, .03);
+  --surface-header: rgba(11, 11, 11, .72);
+  --border-subtle: rgba(255, 255, 255, .08); --border-default: rgba(255, 255, 255, .14);
+  --border-accent-soft: rgba(212, 175, 55, .22); --border-accent: rgba(212, 175, 55, .38); --border-accent-strong: rgba(212, 175, 55, .7);
+  --border-orbit: rgba(212, 175, 55, .28); --border-orbit-inner: rgba(212, 175, 55, .2);
+  --text-strong: var(--ink-50); --text-body: var(--ink-150); --text-muted: var(--ink-300); --text-faint: var(--ink-500);
+  --text-accent: var(--gold-500); --text-accent-hover: var(--gold-200);
+  --text-on-light: var(--ink-800); --text-on-light-muted: var(--ink-400);
+  --accent: var(--gold-500); --accent-hover: var(--gold-400); --accent-press: var(--gold-600); --on-accent: var(--ink-950);
+  --ghost-numeral: rgba(255, 255, 255, .07);
+  --numeral-accent: rgba(212, 175, 55, .35); --numeral-accent-strong: rgba(212, 175, 55, .4);
+  --ghost-wordmark: rgba(255, 255, 255, .035);
+  --glow-ember-color: rgba(224, 138, 46, .20); --glow-gold-color: rgba(212, 175, 55, .10);
+  --hub-core-fill: rgba(11, 11, 11, .9); --hub-core-glow: rgba(212, 175, 55, .18);
+  --selection-bg: rgba(212, 175, 55, .35); --selection-text: var(--white);
+  --status-success: var(--green-500); --status-danger: var(--red-500); --status-info: var(--blue-500); --status-warning: var(--gold-500);
+  --brand-word: var(--brand-word-on-dark); --brand-sub: var(--brand-sub-on-dark);
+  --brand-tile: var(--brand-tile-on-dark); --brand-tile-stroke: var(--brand-tile-stroke-on-dark);
+}
+
+/* ---- Light theme (authored companion; the brand is dark-first) ---- */
+[data-theme="light"] {
+  color-scheme: light;
+  --bg-page: var(--ink-50); --bg-page-deep: var(--ink-100); --bg-raised: var(--white); --bg-inset: var(--white); --bg-light: var(--white);
+  --surface-card: rgba(255, 255, 255, .72); --surface-card-strong: rgba(255, 255, 255, .92); --surface-card-hover: rgba(255, 255, 255, .9);
+  --surface-accent: rgba(184, 150, 44, .10);
+  --surface-ghost-hover: rgba(28, 29, 34, .05);
+  --surface-tag: rgba(28, 29, 34, .03);
+  --surface-header: rgba(245, 245, 245, .8);
+  --border-subtle: rgba(28, 29, 34, .08); --border-default: rgba(28, 29, 34, .16);
+  --border-accent-soft: rgba(156, 122, 30, .24); --border-accent: rgba(156, 122, 30, .45); --border-accent-strong: rgba(156, 122, 30, .8);
+  --border-orbit: rgba(156, 122, 30, .32); --border-orbit-inner: rgba(156, 122, 30, .22);
+  --text-strong: var(--ink-800); --text-body: var(--ink-600); --text-muted: var(--ink-400); --text-faint: var(--ink-300);
+  --text-accent: var(--gold-800); --text-accent-hover: var(--gold-700);
+  --text-on-light: var(--ink-800); --text-on-light-muted: var(--ink-400);
+  --accent: var(--gold-500); --accent-hover: var(--gold-400); --accent-press: var(--gold-600); --on-accent: var(--ink-950);
+  --ghost-numeral: rgba(28, 29, 34, .07);
+  --numeral-accent: rgba(156, 122, 30, .4); --numeral-accent-strong: rgba(156, 122, 30, .45);
+  --ghost-wordmark: rgba(28, 29, 34, .04);
+  --glow-ember-color: rgba(224, 138, 46, .14); --glow-gold-color: rgba(212, 175, 55, .12);
+  --hub-core-fill: rgba(255, 255, 255, .92); --hub-core-glow: rgba(212, 175, 55, .22);
+  --selection-bg: rgba(212, 175, 55, .35); --selection-text: var(--ink-950);
+  --status-success: var(--green-600); --status-danger: var(--red-600); --status-info: var(--blue-600); --status-warning: var(--gold-700);
+  --brand-word: var(--brand-word-on-light); --brand-sub: var(--brand-sub-on-light);
+  --brand-tile: var(--brand-tile-on-light); --brand-tile-stroke: var(--brand-tile-stroke-on-light);
+}

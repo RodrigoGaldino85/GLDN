@@ -1,0 +1,9 @@
+.stat { display: flex; flex-direction: column; gap: var(--space-3); align-items: flex-start; text-align: left; }
+.center { align-items: center; text-align: center; }
+.rule { padding-left: var(--space-5); border-left: var(--border-hairline) solid var(--border-default); }
+.value { font-family: var(--font-display); font-weight: var(--fw-bold); line-height: 1; color: var(--text-accent); letter-spacing: var(--ls-heading); }
+.sm { font-size: var(--fs-stat-s); }
+.md { font-size: var(--fs-stat); }
+.lg { font-size: var(--fs-stat-l); }
+.label { font-family: var(--font-body); font-weight: var(--fw-medium); font-size: var(--fs-label); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--text-strong); }
+.description { font-family: var(--font-body); font-weight: var(--fw-light); font-size: var(--fs-card); line-height: var(--lh-card); color: var(--text-body); max-width: var(--measure-stat); }

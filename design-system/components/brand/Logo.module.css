@@ -1,0 +1,21 @@
+.logo { display: block; flex: none; }
+.tile { fill: var(--brand-tile); stroke: var(--brand-tile-stroke); }
+.dark .tile { fill: var(--brand-tile-on-dark); stroke: var(--brand-tile-stroke-on-dark); }
+.light .tile { fill: var(--brand-tile-on-light); stroke: var(--brand-tile-stroke-on-light); }
+.c1 { fill: var(--brand-circle-1); fill-opacity: .82; }
+.c2 { fill: var(--brand-circle-2); fill-opacity: .82; }
+.c3 { fill: var(--brand-circle-3); fill-opacity: .82; }
+.word { font-family: var(--font-body); font-weight: var(--fw-medium); }
+.sub { font-family: var(--font-body); font-weight: var(--fw-semibold); }
+.rule { stroke: var(--brand-sub); }
+
+/* surface="auto" follows the active theme */
+.auto .word { fill: var(--brand-word); }
+.auto .sub { fill: var(--brand-sub); }
+.auto .rule { stroke: var(--brand-sub); }
+.dark .word { fill: var(--brand-word-on-dark); }
+.dark .sub { fill: var(--brand-sub-on-dark); }
+.dark .rule { stroke: var(--brand-sub-on-dark); }
+.light .word { fill: var(--brand-word-on-light); }
+.light .sub { fill: var(--brand-sub-on-light); }
+.light .rule { stroke: var(--brand-sub-on-light); }

@@ -1,0 +1,5 @@
+/*
+ * Global styles = the GLDN Tech design system (tokens, fonts, base).
+ * Do not add colours, fonts, spacing or radii here — add tokens in design-system/tokens and DESIGN.md.
+ */
+@import "../../design-system/styles.css";

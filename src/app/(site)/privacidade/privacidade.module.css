@@ -1,0 +1,4 @@
+.doc { max-width: var(--container-narrow); display: flex; flex-direction: column; gap: var(--space-4); }
+.doc h2 { margin: var(--space-6) 0 0; font-family: var(--font-body); font-weight: var(--fw-semibold); font-size: var(--fs-label); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--text-accent); }
+.doc p { margin: 0; line-height: var(--lh-body); }
+.updated { font-size: var(--fs-caption); color: var(--text-muted); margin-top: var(--space-6) !important; }

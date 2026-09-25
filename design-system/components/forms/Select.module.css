@@ -1,0 +1,5 @@
+.wrap { position: relative; display: block; }
+.select { padding-right: var(--space-11); appearance: none; -webkit-appearance: none; cursor: pointer; }
+.select:invalid, .placeholder { color: var(--text-muted); }
+.select option { background: var(--bg-inset); color: var(--text-strong); }
+.chevron { position: absolute; right: var(--space-4); top: 50%; transform: translateY(-50%); pointer-events: none; }

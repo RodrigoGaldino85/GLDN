@@ -1,0 +1,10 @@
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { margin: 0; background: var(--bg-page); color: var(--text-body); font: var(--type-body); letter-spacing: var(--ls-body); }
+[data-theme] { color: var(--text-body); }
+a { color: var(--text-accent); text-decoration: none; transition: color var(--dur-fast) var(--ease-out); }
+a:hover { color: var(--text-accent-hover); }
+::selection { background: var(--selection-bg); color: var(--selection-text); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; }
+}

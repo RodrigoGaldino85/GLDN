@@ -1,0 +1,43 @@
+# GLDN Tech
+
+Site da GLDN Tech — consultoria de Microsoft Copilot e IA corporativa. Repositório:
+[RodrigoGaldino85/GLDN](https://github.com/RodrigoGaldino85/GLDN).
+
+Next.js 16 (App Router) · React 19 · TypeScript · CSS Modules sobre o design system próprio.
+
+## Começando
+
+```bash
+npm install
+npm run dev
+```
+
+Abra http://localhost:3000. O catálogo do design system fica em
+http://localhost:3000/design-system.
+
+Para receber os leads do formulário, copie `.env.example` para `.env.local` e defina
+`LEAD_WEBHOOK_URL` (Make, Zapier, Power Automate, n8n ou webhook do seu CRM). Em
+desenvolvimento, sem a variável, os leads aparecem no console do servidor.
+
+| Script | Faz |
+|---|---|
+| `npm run dev` / `build` / `start` | Desenvolvimento, build de produção, servidor de produção |
+| `npm run typecheck` | Gera tipos de rota do Next e roda `tsc` |
+| `npm run lint` | ESLint com regras de aderência ao design system + checagem de tokens em CSS |
+| `npm run lint:design` | Confere `DESIGN.md` ↔ `design-system/tokens` e roda o lint oficial do formato |
+| `npm run check` | typecheck + lint + build |
+
+## Estrutura
+
+- `DESIGN.md` — contrato visual e fonte da verdade dos tokens (formato DESIGN.md do Google Labs/Stitch).
+- `design-system/` — tokens, fontes, assets, componentes, padrões, templates, guidelines e
+  HTMLs de referência. Mapa completo em [`design-system/README.md`](design-system/README.md).
+- `src/app/(site)/` — o site: `/`, `/diagnostico`, `/solucoes`, `/dynamics`, `/capacitacao`,
+  `/sobre`, `/contato`, `/privacidade`. Header e rodapé em `(site)/layout.tsx`.
+- `src/content/site.ts` — **todo o texto do site** (ofertas, preço de entrada, FAQ, contatos,
+  opções do formulário), extraído do Plano de Negócio e do modelo de proposta. Edite aqui.
+- `src/app/api/lead/route.ts` — recebe o formulário, valida e repassa ao `LEAD_WEBHOOK_URL`.
+- `src/app/design-system/` — catálogo interno do design system (fora dos buscadores).
+- `Documents/` — material de negócio (plano, proposta, identidade, referências visuais). Não é código.
+- `AGENTS.md` — instruções para agentes de código (lido pelo Claude Code, Codex, Cursor etc.;
+  `CLAUDE.md` importa o `AGENTS.md`).

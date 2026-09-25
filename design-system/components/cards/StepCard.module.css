@@ -1,0 +1,20 @@
+.step { border-color: var(--border-accent-soft); }
+.numeral {
+  font-family: var(--font-display); font-weight: var(--fw-bold); font-size: var(--fs-numeral-m); line-height: 1;
+  color: var(--ghost-numeral); margin-bottom: var(--space-1_5); letter-spacing: var(--ls-numeral);
+  transition: color var(--dur-base) var(--ease-out);
+}
+.active .numeral { color: var(--numeral-accent); }
+
+/* Hover lights the card up like the active step (numeral, gold border, halo, lift). */
+.lit { transition: transform var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out); }
+.lit:hover, .lit[data-state="hover"] { border-color: var(--border-accent); box-shadow: var(--shadow-card), var(--shadow-glow-card); transform: translateY(var(--lift-hover)); }
+.lit:hover .numeral, .lit[data-state="hover"] .numeral { color: var(--numeral-accent); }
+/* While another step in the same row is hovered, the default active step dims. */
+:has(> .lit:hover) > .active:not(:hover),
+:has(> * > .lit:hover) > * > .active:not(:hover) { border-color: var(--border-accent-soft); box-shadow: var(--shadow-card); }
+:has(> .lit:hover) > .active:not(:hover) .numeral,
+:has(> * > .lit:hover) > * > .active:not(:hover) .numeral { color: var(--ghost-numeral); }
+.title { font-family: var(--font-body); font-weight: var(--fw-semibold); font-size: var(--fs-title-s); letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--text-strong); margin-bottom: var(--space-2_5); }
+.description { font-family: var(--font-body); font-weight: var(--fw-light); font-size: var(--fs-card-l); line-height: var(--lh-card); color: var(--text-body); }
+.fill { height: 100%; }

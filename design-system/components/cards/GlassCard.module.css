@@ -1,0 +1,29 @@
+.card {
+  position: relative;
+  background: var(--gradient-card-sheen), var(--surface-card);
+  border: var(--border-hairline) solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(var(--blur-glass)); -webkit-backdrop-filter: blur(var(--blur-glass));
+  transition: transform var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out), background var(--dur-base) var(--ease-out);
+}
+/* Padding presets (px values from the reference kit) */
+.pad-md { padding: var(--space-7); }                          /* 28 — default */
+.pad-lg { padding: var(--space-8); }                          /* 32 */
+.pad-plan { padding: var(--space-7_5); }                      /* 30 */
+.pad-row { padding: var(--space-6_5) var(--space-7); }        /* 26 28 */
+.pad-step { padding: var(--space-4_5) var(--space-7) var(--space-7_5); } /* 18 28 30 */
+.pad-panel { padding: clamp(var(--space-7), 5vw, var(--space-14)); }
+.pad-panel-sm { padding: clamp(var(--space-6), 4vw, var(--space-11)); }
+.pad-none { padding: 0; }
+/* Radius presets */
+.radius-lg { border-radius: var(--radius-lg); }
+.radius-card-l { border-radius: var(--radius-card-l); }
+.radius-xl { border-radius: var(--radius-xl); }
+
+.glow { border-color: var(--border-accent); box-shadow: var(--shadow-card), var(--shadow-glow-card); }
+.interactive:hover, .interactive[data-state="hover"] {
+  background: var(--gradient-card-sheen), var(--surface-card-hover);
+  border-color: var(--border-accent); transform: translateY(var(--lift-hover));
+}
+.clickable { cursor: pointer; }
+.clickable:focus-visible, .clickable[data-state="focus"] { outline: none; box-shadow: var(--shadow-card), var(--focus-ring); }

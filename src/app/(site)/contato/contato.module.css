@@ -1,0 +1,11 @@
+.form { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: var(--space-5_5); }
+.full { grid-column: 1 / -1; }
+.note { margin: var(--space-3) 0 0; font-size: var(--fs-caption); color: var(--text-muted); text-align: center; }
+.honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.result { display: flex; flex-direction: column; gap: var(--space-6); align-items: flex-start; padding: var(--space-4) 0; }
+.badge { width: var(--size-success-badge); height: var(--size-success-badge); border-radius: var(--radius-round); border: var(--border-hairline) solid var(--border-accent-strong); display: flex; align-items: center; justify-content: center; }
+.actions { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+.info { display: flex; flex-direction: column; gap: var(--space-4_5); }
+.infoItem { display: flex; gap: var(--space-3_5); align-items: center; font-size: var(--fs-card); color: var(--text-strong); overflow-wrap: anywhere; }
+.infoItem a { color: inherit; }
+.infoItem a:hover { color: var(--text-accent-hover); }

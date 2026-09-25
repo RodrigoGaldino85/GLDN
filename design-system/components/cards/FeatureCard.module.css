@@ -1,0 +1,8 @@
+.body { display: flex; gap: var(--space-5_5); align-items: flex-start; }
+.stack { flex-direction: column; gap: var(--space-5); }
+.icon { margin-top: var(--space-0_5); }
+.stack .icon { margin-top: 0; }
+.text { display: flex; flex-direction: column; gap: var(--space-2); }
+.title { font-family: var(--font-body); font-weight: var(--fw-semibold); font-size: var(--fs-card); letter-spacing: var(--ls-caps-s); text-transform: uppercase; color: var(--text-strong); }
+.description { font-family: var(--font-body); font-weight: var(--fw-light); font-size: var(--fs-card); line-height: var(--lh-card); color: var(--text-body); text-wrap: pretty; }
+.fill { height: 100%; }
