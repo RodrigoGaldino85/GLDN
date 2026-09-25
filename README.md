@@ -15,9 +15,9 @@ npm run dev
 Abra http://localhost:3000. O catálogo do design system fica em
 http://localhost:3000/design-system.
 
-Para receber os leads do formulário, copie `.env.example` para `.env.local` e defina
-`LEAD_WEBHOOK_URL` (Make, Zapier, Power Automate, n8n ou webhook do seu CRM). Em
-desenvolvimento, sem a variável, os leads aparecem no console do servidor.
+Os leads do formulário chegam por e-mail (SMTP da caixa `contato@gldntech.com.br`) e/ou por
+webhook. Variáveis em `.env.example`; localmente, copie para `.env.local`. Em desenvolvimento,
+sem nenhum destino configurado, os leads aparecem no console do servidor.
 
 | Script | Faz |
 |---|---|
@@ -30,7 +30,8 @@ desenvolvimento, sem a variável, os leads aparecem no console do servidor.
 ## Publicação (Hostinger)
 
 Node.js Web App no hPanel, conectado ao GitHub: Node 22 ou 24, build `npm run build`, start
-`npm run start`, variável `LEAD_WEBHOOK_URL`. O build usa Webpack e a config é
+`npm run start`, variáveis `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS` (e opcionalmente
+`LEAD_TO`, `LEAD_WEBHOOK_URL`). O build usa Webpack e a config é
 `next.config.mjs` porque o servidor de build da Hostinger não roda o compilador nativo do Next
 (ver `AGENTS.md`).
 
@@ -43,7 +44,8 @@ Node.js Web App no hPanel, conectado ao GitHub: Node 22 ou 24, build `npm run bu
   `/sobre`, `/contato`, `/privacidade`. Header e rodapé em `(site)/layout.tsx`.
 - `src/content/site.ts` — **todo o texto do site** (ofertas, preço de entrada, FAQ, contatos,
   opções do formulário), extraído do Plano de Negócio e do modelo de proposta. Edite aqui.
-- `src/app/api/lead/route.ts` — recebe o formulário, valida e repassa ao `LEAD_WEBHOOK_URL`.
+- `src/app/api/lead/route.ts` — recebe o formulário, valida e entrega por e-mail
+  (`src/lib/lead-mail.ts`, SMTP) e/ou webhook.
 - `src/app/design-system/` — catálogo interno do design system (fora dos buscadores).
 - `Documents/` — material de negócio (plano, proposta, identidade, referências visuais). Não é código.
 - `AGENTS.md` — instruções para agentes de código (lido pelo Claude Code, Codex, Cursor etc.;

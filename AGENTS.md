@@ -20,9 +20,10 @@ shadcn/ui: a estilização vem do design system próprio em `design-system/`.
 - **Conteúdo em `src/content/site.ts`** — textos, ofertas, preço público do Diagnóstico, FAQ e
   opções do formulário. Mudança de copy é nesse arquivo, não nas páginas.
 - Leads: formulário `(site)/contato/LeadForm.tsx` → `POST /api/lead` (validação em
-  `src/lib/lead.ts`) → `LEAD_WEBHOOK_URL`. Campos espelham a proposta comercial (porte em
-  usuários, situação do Copilot, ERP, assunto). Sem webhook em produção: 503 e o formulário
-  oferece e-mail pré-preenchido.
+  `src/lib/lead.ts`) → e-mail via SMTP (`src/lib/lead-mail.ts`, nodemailer) e/ou
+  `LEAD_WEBHOOK_URL`; basta um canal entregar. Campos espelham a proposta comercial (porte em
+  usuários, situação do Copilot, ERP, assunto). Sem nenhum destino em produção: 503 e o
+  formulário oferece e-mail pré-preenchido. Falhas de envio vão para o log (`[lead] ...`).
 - Tema: escuro por padrão; escolha do visitante salva em `localStorage` (`gldn-theme`) e
   aplicada antes da pintura pelo script em `src/app/layout.tsx` (`@ds/lib/theme`).
 - SEO: metadata por página, `sitemap.ts`, `robots.ts` (bloqueia `/design-system` e `/api`),
@@ -35,7 +36,8 @@ shadcn/ui: a estilização vem do design system próprio em `design-system/`.
   `next.config.ts`) e `"build": "next build --webpack"` (Turbopack não roda com WASM).
 - Para reproduzir localmente: baixe `@next/swc-wasm-nodejs` da mesma versão do Next e rode
   `NEXT_TEST_WASM=1 NEXT_TEST_WASM_DIR=<pasta>/package npm run build`.
-- Variáveis no hPanel: `LEAD_WEBHOOK_URL` (e opcional `LEAD_WEBHOOK_SECRET`).
+- Variáveis no hPanel: `SMTP_HOST=smtp.hostinger.com`, `SMTP_PORT=465`, `SMTP_USER`,
+  `SMTP_PASS` (opcionais: `LEAD_TO`, `LEAD_WEBHOOK_URL`, `LEAD_WEBHOOK_SECRET`). Ver `.env.example`.
 
 ## Comandos
 
