@@ -3,7 +3,7 @@ title: Oversharing no SharePoint — o risco que o Copilot revela
 description: O Copilot mostra a cada pessoa tudo o que ela já tem permissão de ver. Entenda por que permissões antigas viram risco e como corrigir antes de escalar.
 date: 2026-09-25
 tags: Governança, SharePoint, Microsoft 365 Copilot
-draft: true
+draft: false
 ---
 
 Quando uma empresa liga o Microsoft 365 Copilot, a primeira surpresa raramente é a produtividade. É o que o Copilot consegue encontrar.
@@ -39,6 +39,8 @@ Não é preciso adiar o Copilot até ter um ambiente perfeito. O que funciona é
 5. **Monitorar.** Revisar periodicamente quem tem acesso a quê e auditar o uso do Copilot.
 
 > O objetivo não é trancar tudo. É garantir que cada pessoa encontre o que precisa para trabalhar — e só isso.
+
+
 
 ## Quanto tempo leva
 
