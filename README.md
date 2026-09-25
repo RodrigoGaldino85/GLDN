@@ -27,6 +27,13 @@ desenvolvimento, sem a variável, os leads aparecem no console do servidor.
 | `npm run lint:design` | Confere `DESIGN.md` ↔ `design-system/tokens` e roda o lint oficial do formato |
 | `npm run check` | typecheck + lint + build |
 
+## Publicação (Hostinger)
+
+Node.js Web App no hPanel, conectado ao GitHub: Node 22 ou 24, build `npm run build`, start
+`npm run start`, variável `LEAD_WEBHOOK_URL`. O build usa Webpack e a config é
+`next.config.mjs` porque o servidor de build da Hostinger não roda o compilador nativo do Next
+(ver `AGENTS.md`).
+
 ## Estrutura
 
 - `DESIGN.md` — contrato visual e fonte da verdade dos tokens (formato DESIGN.md do Google Labs/Stitch).

@@ -11,7 +11,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 # GLDN Tech — site
 
 Site de marketing (pt-BR) da GLDN Tech, consultoria de Microsoft Copilot e IA corporativa.
-Next.js 16 (App Router, Turbopack) · React 19 · TypeScript · CSS Modules. Sem Tailwind e sem
+Next.js 16 (App Router; Turbopack no dev, **Webpack no build**) · React 19 · TypeScript · CSS Modules. Sem Tailwind e sem
 shadcn/ui: a estilização vem do design system próprio em `design-system/`.
 
 ## Site
@@ -27,6 +27,15 @@ shadcn/ui: a estilização vem do design system próprio em `design-system/`.
   aplicada antes da pintura pelo script em `src/app/layout.tsx` (`@ds/lib/theme`).
 - SEO: metadata por página, `sitemap.ts`, `robots.ts` (bloqueia `/design-system` e `/api`),
   JSON-LD `ProfessionalService` no layout do site.
+
+## Hospedagem (Hostinger — Node.js Web App)
+
+- O servidor de build da Hostinger tem glibc antiga: o binário nativo do SWC não carrega e o
+  Next cai no fallback WASM. Por isso: `next.config.mjs` (JS puro, **não** usar
+  `next.config.ts`) e `"build": "next build --webpack"` (Turbopack não roda com WASM).
+- Para reproduzir localmente: baixe `@next/swc-wasm-nodejs` da mesma versão do Next e rode
+  `NEXT_TEST_WASM=1 NEXT_TEST_WASM_DIR=<pasta>/package npm run build`.
+- Variáveis no hPanel: `LEAD_WEBHOOK_URL` (e opcional `LEAD_WEBHOOK_SECRET`).
 
 ## Comandos
 
