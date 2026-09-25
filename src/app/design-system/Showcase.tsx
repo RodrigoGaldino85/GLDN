@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState, type CSSProperties, type ReactNode } from "react";
 import {
   Accordion, Button, Checkbox, Eyebrow, FeatureCard, GlassCard, Icon, Input, Logo, NavBar, PlanCard, SectionCounter,
-  SectionHeading, Select, StatBlock, StepCard, Tag, Textarea, ThemeToggle, IconList, type IconName,
+  SectionHeading, Select, StatBlock, StepCard, Tag, Textarea, ThemeToggle, IconList, ArticleCard, Prose, type IconName,
 } from "@ds/components";
 import { Footer, GhostWordmark, Glow, GoldRule, HubDiagram, Section, TrackedLine } from "@ds/patterns";
 import styles from "./showcase.module.css";
@@ -124,7 +124,7 @@ function Components({ t }: { t: Theme }) {
   const [checked, setChecked] = useState(true);
   const [navActive, setNavActive] = useState("Soluções");
   return (
-    <Block id={`${t}-components`} title="Componentes" lead="20 componentes · design-system/components · import de @ds/components.">
+    <Block id={`${t}-components`} title="Componentes" lead="22 componentes · design-system/components · import de @ds/components.">
       <Item title="Logo" path="brand/Logo">
         <div className={styles.row}>
           <State label="auto (segue o tema)"><Logo height={44} /></State>
@@ -204,6 +204,9 @@ function Components({ t }: { t: Theme }) {
           <State label="danger"><IconList tone="danger" icon="circle-x" items={["Fora do escopo"]} /></State>
         </div>
       </Item>
+      <Item title="Prose" path="display/Prose">
+        <Prose html={'<h2>Por que o risco só aparece agora</h2><p>O Copilot responde com base no que <strong>cada usuário já pode ver</strong>. Veja o <a href="#">diagnóstico</a>.</p><h3>Casos comuns</h3><ul><li>Sites abertos para toda a organização</li><li>Links do tipo “qualquer pessoa”</li></ul><blockquote><p>O objetivo não é trancar tudo.</p></blockquote><ol><li>Mapear</li><li>Priorizar</li></ol><p>Código: <code>draft: true</code></p><hr><table><thead><tr><th>Frente</th><th>Prazo</th></tr></thead><tbody><tr><td>Diagnóstico</td><td>3 semanas</td></tr></tbody></table>'} />
+      </Item>
       <Item title="ThemeToggle" path="actions/ThemeToggle">
         <div className={styles.row}>
           <State label="default"><ThemeToggle /></State>
@@ -231,6 +234,13 @@ function Components({ t }: { t: Theme }) {
             <FeatureCard layout="stack" icon="workflow" title="Agentes (stack)" description="Processos automatizados." />
             <FeatureCard layout="stack" icon="sparkles" title="Sem descrição" />
           </div>
+        </div>
+      </Item>
+      <Item title="ArticleCard" path="cards/ArticleCard">
+        <div className={styles.grid3}>
+          <ArticleCard href="#" title="Oversharing no SharePoint — o risco que o Copilot revela" excerpt="Por que permissões antigas viram risco quando a IA é ligada." date="25 set 2026" readingTime="4 min de leitura" tags={["Governança", "SharePoint"]} />
+          <ArticleCard href="#" title="Hover" excerpt="Título dourado e seta deslizando." date="25 set 2026" readingTime="3 min de leitura" forceState="hover" />
+          <ArticleCard href="#" title="Rascunho sem tags" excerpt="Rascunhos só aparecem no ambiente de desenvolvimento." draft />
         </div>
       </Item>
       <Item title="StepCard" path="cards/StepCard">
@@ -370,7 +380,7 @@ export function Showcase() {
       </div>
       <div className={styles.intro}>
         <SectionHeading as="h1" size="lg" eyebrow="GLDN Tech" title="Design system." highlight="A biblioteca inteira."
-          lead="Fundamentos, 20 componentes com todos os estados, padrões de composição e templates do site — renderizados nos temas escuro e claro. Fonte da verdade dos tokens: DESIGN.md." />
+          lead="Fundamentos, 22 componentes com todos os estados, padrões de composição e templates do site — renderizados nos temas escuro e claro. Fonte da verdade dos tokens: DESIGN.md." />
       </div>
       <ThemePanel theme="dark" />
       <ThemePanel theme="light" />

@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { Button, FeatureCard, SectionHeading, StepCard } from "@ds/components";
 import { Glow, Section } from "@ds/patterns";
-import { training } from "@/content/site";
+import { seo, training } from "@/content/site";
 import { CtaSection } from "../_components/CtaSection";
 import styles from "../_components/site.module.css";
 import { AreaTracks } from "./AreaTracks";
 
-export const metadata: Metadata = {
-  title: "Capacitação em Microsoft Copilot",
-  description: "Trilhas de Copilot por nível e por área — Financeiro, RH, Comercial, Jurídico, Operações e TI. Turmas de até 20 pessoas, cobradas por turma.",
-  alternates: { canonical: "/capacitacao" },
-};
+export const metadata: Metadata = pageMetadata({ ...seo.capacitacao, path: "/capacitacao" });
 
 const cta = { label: "Montar uma turma", href: "/contato?interesse=capacitacao" };
 

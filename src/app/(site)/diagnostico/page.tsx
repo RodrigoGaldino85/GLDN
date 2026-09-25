@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { Button, FeatureCard, GlassCard, IconList, SectionHeading, StepCard } from "@ds/components";
 import { Glow, Section } from "@ds/patterns";
-import { diagnostic, diagnosticPrice, primaryCta } from "@/content/site";
+import { diagnostic, diagnosticPrice, primaryCta, seo } from "@/content/site";
 import { CtaSection } from "../_components/CtaSection";
 import styles from "../_components/site.module.css";
 
-export const metadata: Metadata = {
-  title: "Diagnóstico Copilot Readiness",
-  description: `Em 3 semanas, com dados do seu ambiente: riscos de exposição, uso de licenças e créditos, casos de uso por área e roadmap de 90 dias. A partir de ${diagnosticPrice.from}.`,
-  alternates: { canonical: "/diagnostico" },
-};
+export const metadata: Metadata = pageMetadata({ ...seo.diagnostico, path: "/diagnostico" });
 
 export default function DiagnosticPage() {
   return (

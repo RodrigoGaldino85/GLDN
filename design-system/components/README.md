@@ -68,6 +68,9 @@ Agrupe 3–4 por linha.
 ```
 `tone`: `accent` (padrão) · `muted` · `success` · `danger`. `compact` para listas densas.
 
+**Prose** — tipografia de texto longo (artigos): `h2`/`h3`, listas, citações, tabelas, código e links.
+`<Prose as="article" html={htmlDoMarkdown} />` — só para conteúdo do próprio site (o HTML não é sanitizado).
+
 ## cards/
 
 **GlassCard** — superfície de vidro fumê; base de todo card.
@@ -91,6 +94,10 @@ sob o mouse, o `active` padrão apaga. `interactive={false}` desliga o hover.
 ```
 No hover, o card acende como o `featured` (numeral, nome e ícones dourados, halo, CTA sólido); o
 `featured` recua enquanto outro card da mesma linha está sob o mouse. `interactive={false}` desliga.
+
+**ArticleCard** — chamada de artigo: data · tempo de leitura, título em Cinzel, resumo, tags e
+"Ler artigo". O card inteiro é um link; `draft` mostra a marca "Rascunho".
+`<ArticleCard href="/conteudo/slug" title="…" excerpt="…" date="25 set 2026" readingTime="4 min de leitura" tags={["Governança"]} />`
 
 ## forms/
 

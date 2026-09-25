@@ -27,6 +27,12 @@
 .navOnly .end { margin-left: 0; }
 .noLinks .end { margin-left: auto; }
 
+/* Narrow desktops: tighter spacing so 6 links + actions + CTA fit on one row. */
+@media (max-width: 1360px) {
+  .inner { gap: var(--space-6); }
+  .nav { gap: var(--space-5); }
+}
+
 /* Mobile menu */
 .menuButton {
   display: none; align-items: center; justify-content: center; margin-left: auto;

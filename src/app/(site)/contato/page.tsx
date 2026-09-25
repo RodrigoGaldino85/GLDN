@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
+import { pageMetadata } from "@/lib/seo";
 import { GlassCard, Icon, SectionHeading, StepCard } from "@ds/components";
 import { Glow, Section } from "@ds/patterns";
-import { company } from "@/content/site";
+import { company, seo } from "@/content/site";
 import siteStyles from "../_components/site.module.css";
 import styles from "./contato.module.css";
 import { LeadForm } from "./LeadForm";
 
-export const metadata: Metadata = {
-  title: "Contato e proposta",
-  description: "Conte onde sua empresa está com o Microsoft Copilot. Respondemos com os próximos passos e uma proposta com escopo e preço fechados.",
-  alternates: { canonical: "/contato" },
-};
+export const metadata: Metadata = pageMetadata({ ...seo.contato, path: "/contato" });
 
 const steps = [
   { number: "01", title: "Descoberta", description: "Uma conversa para entender o ambiente, as licenças e a dor principal." },
@@ -34,7 +30,7 @@ export default function ContactPage() {
             </div>
           </div>
           <GlassCard glow padding="panel-sm" radius="card-l">
-            <Suspense fallback={null}><LeadForm /></Suspense>
+            <LeadForm />
           </GlassCard>
         </div>
       </Section>

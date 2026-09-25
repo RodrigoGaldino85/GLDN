@@ -32,6 +32,8 @@ const COMPONENTS = {
   Logo: { props: ["surface", "height", "wordmark", "tagline"], enums: { surface: ["auto", "dark", "light"] } },
   NavBar: { props: ["links", "cta", "onCta", "ctaHref", "onNavigate", "onLogo", "logoHref", "actions", "mobileActions", "sticky"] },
   ThemeToggle: { props: ["showLabel", "forceState"] },
+  Prose: { props: ["html", "as"], enums: { as: ["div", "article", "section"] } },
+  ArticleCard: { props: ["title", "excerpt", "href", "date", "readingTime", "tags", "draft", "forceState"] },
   IconList: { props: ["items", "icon", "tone", "compact"], enums: { tone: ["accent", "muted", "success", "danger"] } },
   NavItem: { props: ["label", "href", "active", "forceState"] },
   PlanCard: { props: ["number", "name", "audience", "kicker", "features", "featured", "badge", "cta", "onCta", "ctaHref", "interactive", "forceState"] },

@@ -1,7 +1,6 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
-import { useState, type FormEvent } from "react";
+import { useState, useSyncExternalStore, type FormEvent } from "react";
 import { Button, Checkbox, Icon, Input, SectionHeading, Select, Textarea } from "@ds/components";
 import { company, leadForm } from "@/content/site";
 import { isPersonalEmail, validateLead, type Lead, type LeadErrors } from "@/lib/lead";
@@ -11,12 +10,22 @@ type Status = "idle" | "sending" | "sent" | "fallback";
 
 const interestLabel = (v: string) => leadForm.interests.find((i) => i.value === v)?.label ?? v;
 
+/** ?interesse=… from the URL, read on the client only — keeps the form in the static HTML (no layout shift). */
+const noop = () => () => {};
+function useInterestParam() {
+  return useSyncExternalStore(noop, () => {
+    const v = new URLSearchParams(window.location.search).get("interesse") ?? "";
+    return leadForm.interests.some((i) => i.value === v) ? v : "";
+  }, () => "");
+}
+
 export function LeadForm() {
-  const params = useSearchParams();
-  const initialInterest = leadForm.interests.some((i) => i.value === params.get("interesse")) ? params.get("interesse")! : "";
+  const initialInterest = useInterestParam();
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<LeadErrors>({});
-  const [lead, setLead] = useState<Partial<Lead>>({ interesse: initialInterest, consentimento: false });
+  const [draft, setLead] = useState<Partial<Lead>>({ consentimento: false });
+  // The visitor's own choice wins; otherwise the subject preselected by the link that brought them here.
+  const lead: Partial<Lead> = { ...draft, interesse: draft.interesse ?? initialInterest };
   const set = (k: keyof Lead) => (v: string | boolean) => { setLead((l) => ({ ...l, [k]: v })); setErrors((e) => ({ ...e, [k]: undefined })); };
 
   const submit = async (e: FormEvent<HTMLFormElement>) => {

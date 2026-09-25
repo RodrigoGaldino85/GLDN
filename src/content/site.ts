@@ -288,3 +288,46 @@ export const leadForm = {
   copilotStatus: ["Já temos licenças do Copilot", "Estamos avaliando a compra", "Ainda não usamos o Copilot"],
   erp: ["Dynamics 365 Finance & Operations", "Dynamics 365 Business Central", "Dynamics 365 Customer Engagement", "Power Platform / Dataverse", "Outro ERP", "Não usamos"],
 };
+
+/**
+ * Títulos e descrições para o Google e para compartilhamento. Título até ~48 caracteres (o
+ * layout acrescenta " · GLDN Tech"); descrição até ~155. Use os termos que o cliente busca.
+ */
+export const seo = {
+  home: {
+    title: "Consultoria Microsoft Copilot e IA para empresas | GLDN Tech",
+    description: "Consultoria em Microsoft 365 Copilot: segurança dos dados, custo de licenças e créditos sob controle, capacitação e agentes — inclusive no Dynamics 365.",
+  },
+  diagnostico: {
+    title: "Diagnóstico Microsoft Copilot em 3 semanas",
+    description: `Prontidão, riscos de exposição de dados, uso de licenças e créditos e casos de uso por área, com roadmap de 90 dias. Preço fechado a partir de ${diagnosticPrice.from}.`,
+  },
+  solucoes: {
+    title: "Consultoria Copilot: governança, FinOps e agentes",
+    description: "Governança e LGPD, FinOps de licenças e créditos, capacitação, agentes com Copilot Studio e integração com Dynamics 365. Projetos fechados ou banco de horas.",
+  },
+  dynamics: {
+    title: "Copilot no Dynamics 365: agentes para o seu ERP",
+    description: "Agentes de Copilot no Finance & Operations, Business Central e Customer Engagement, conectados ao Dataverse. 16 anos de experiência em Microsoft Dynamics.",
+  },
+  capacitacao: {
+    title: "Treinamento de Microsoft Copilot para empresas",
+    description: "Treinamento de Copilot por nível e por área — Financeiro, RH, Comercial, Jurídico, Operações e TI. Turmas de até 20 pessoas, cobradas por turma.",
+  },
+  sobre: {
+    title: "Sobre: consultoria de Copilot e Dynamics 365",
+    description: "Consultoria de Microsoft Copilot fundada por Rodrigo Galdino: 20 anos em TI, 16 no ecossistema Dynamics, método Lean para medir o retorno da IA.",
+  },
+  contato: {
+    title: "Solicite uma proposta de consultoria Copilot",
+    description: "Conte onde sua empresa está com o Microsoft Copilot. Respondemos com os próximos passos e uma proposta com escopo e preço fechados.",
+  },
+  privacidade: {
+    title: "Política de privacidade",
+    description: "Como a GLDN Tecnologia trata os dados enviados pelo site, conforme a LGPD.",
+  },
+  conteudo: {
+    title: "Artigos sobre Microsoft Copilot, custo e governança",
+    description: "Guias práticos sobre Microsoft Copilot: quanto custa um agente, oversharing no SharePoint, créditos do Copilot Studio e Copilot no Dynamics 365.",
+  },
+};

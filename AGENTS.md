@@ -26,8 +26,17 @@ shadcn/ui: a estilização vem do design system próprio em `design-system/`.
   formulário oferece e-mail pré-preenchido. Falhas de envio vão para o log (`[lead] ...`).
 - Tema: escuro por padrão; escolha do visitante salva em `localStorage` (`gldn-theme`) e
   aplicada antes da pintura pelo script em `src/app/layout.tsx` (`@ds/lib/theme`).
-- SEO: metadata por página, `sitemap.ts`, `robots.ts` (bloqueia `/design-system` e `/api`),
-  JSON-LD `ProfessionalService` no layout do site.
+- SEO: toda página nova exporta `metadata = pageMetadata({ title, description, path })`
+  (`src/lib/seo.ts`) — sem ele o `og:url` herda o da home e a imagem de compartilhamento some
+  (metadata do Next é mesclado de forma rasa). Imagem de compartilhamento:
+  `src/app/opengraph-image.png` (1200×630). Inclua a rota nova em `src/app/sitemap.ts`.
+  `robots.ts` bloqueia `/design-system` e `/api`; JSON-LD `ProfessionalService` no layout do site.
+- Artigos: Markdown em `src/content/artigos/<slug>.md` (modelo em `_modelo.md`; arquivos com
+  `_` são ignorados), lidos por `src/lib/articles.ts` e renderizados em `/conteudo` e
+  `/conteudo/[slug]` (JSON-LD `BlogPosting`). `draft: true` aparece só no `npm run dev`. O link
+  "Conteúdo" no menu e as URLs no sitemap surgem sozinhos quando há artigo publicado.
+- Evite `useSearchParams` em páginas estáticas: exige `<Suspense>` e o conteúdo sai do HTML
+  inicial (causou CLS de 0,96 no contato). Leia a URL no cliente (ver `LeadForm.tsx`).
 
 ## Hospedagem (Hostinger — Node.js Web App)
 
@@ -66,7 +75,7 @@ shadcn/ui: a estilização vem do design system próprio em `design-system/`.
 | Onde | O quê |
 |---|---|
 | `design-system/tokens/` | Tokens CSS (cores por tema, tipografia, espaçamento/raios, efeitos, fontes, base) |
-| `design-system/components/{brand,actions,display,cards,forms,navigation}/` | 20 componentes tipados; uso em `design-system/components/README.md` |
+| `design-system/components/{brand,actions,display,cards,forms,navigation}/` | 22 componentes tipados; uso em `design-system/components/README.md` |
 | `design-system/patterns/` | Padrões de composição (Section, Glow, TrackedLine, GoldRule, GhostWordmark, HubDiagram, Footer) |
 | `design-system/templates/website/` | Telas do site (Home, Soluções, Capacitação, Contato) + SiteShell |
 | `design-system/guidelines/` | Voz/copy, iconografia, origem das referências |

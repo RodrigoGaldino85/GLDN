@@ -8,7 +8,8 @@ export const metadata: Metadata = {
   title: { default: `${company.name} — ${company.tagline}`, template: `%s · ${company.name}` },
   description: company.description,
   applicationName: company.name,
-  openGraph: { type: "website", locale: "pt_BR", siteName: company.name, url: company.url },
+  openGraph: { type: "website", locale: "pt_BR", siteName: company.name, url: "/" },
+  twitter: { card: "summary_large_image" },
   alternates: { canonical: "/" },
 };
 

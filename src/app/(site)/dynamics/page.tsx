@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { Button, FeatureCard, GlassCard, IconList, SectionHeading, StatBlock } from "@ds/components";
 import { Glow, Section } from "@ds/patterns";
-import { dynamics } from "@/content/site";
+import { dynamics, seo } from "@/content/site";
 import { CtaSection } from "../_components/CtaSection";
 import styles from "../_components/site.module.css";
 
-export const metadata: Metadata = {
-  title: "Copilot para Microsoft Dynamics 365",
-  description: "Agentes de Copilot embutidos no Finance & Operations, Business Central e Customer Engagement, conectados ao Dataverse — com 16 anos de experiência em Dynamics.",
-  alternates: { canonical: "/dynamics" },
-};
+export const metadata: Metadata = pageMetadata({ ...seo.dynamics, path: "/dynamics" });
 
 const cta = { label: "Falar sobre o meu Dynamics", href: "/contato?interesse=dynamics" };
 

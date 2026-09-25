@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { Button, GlassCard, Icon, IconList, PlanCard, SectionHeading } from "@ds/components";
 import { Glow, Section } from "@ds/patterns";
-import { coe, engagementModels, pillars, primaryCta, products } from "@/content/site";
+import { coe, engagementModels, pillars, primaryCta, products, seo } from "@/content/site";
 import { CtaSection } from "../_components/CtaSection";
 import styles from "../_components/site.module.css";
 
-export const metadata: Metadata = {
-  title: "Soluções",
-  description: "Estratégia e adoção, governança e LGPD, FinOps de licenças e créditos, capacitação, agentes com Copilot Studio e integração com Dynamics 365.",
-  alternates: { canonical: "/solucoes" },
-};
+export const metadata: Metadata = pageMetadata({ ...seo.solucoes, path: "/solucoes" });
 
 export default function SolutionsPage() {
   return (

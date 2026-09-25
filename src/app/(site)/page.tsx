@@ -1,10 +1,17 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { Accordion, Button, FeatureCard, GlassCard, IconList, SectionHeading, StatBlock, StepCard } from "@ds/components";
 import { Glow, GoldRule, HubDiagram, Section, TrackedLine } from "@ds/patterns";
 import {
   audiences, diagnostic, diagnosticPrice, differentials, faq, idealFor, journey, pains, pillars, positioning, primaryCta,
 } from "@/content/site";
 import { CtaSection } from "./_components/CtaSection";
+import { seo } from "@/content/site";
 import styles from "./_components/site.module.css";
+
+const homeMeta = pageMetadata({ ...seo.home, path: "/" });
+// Home uses its full title as-is (no " · GLDN Tech" suffix from the layout template).
+export const metadata: Metadata = { ...homeMeta, title: { absolute: seo.home.title } };
 
 export default function HomePage() {
   return (

@@ -3,7 +3,7 @@
 import type { CSSProperties } from "react";
 import { DynamicIcon, type IconName } from "lucide-react/dynamic";
 import {
-  ArrowRight, ArrowUpRight, Award, Ban, BadgeCheck, BarChart3, Briefcase, Building2, CalendarCheck, CircleAlert, CircleCheck, CircleX,
+  ArrowLeft, ArrowRight, ArrowUpRight, Award, Ban, BadgeCheck, BarChart3, Briefcase, Building2, CalendarCheck, CircleAlert, CircleCheck, CircleX,
   ClipboardList, Coins, Compass, Factory, FileCheck, FileSearch, FileSpreadsheet, Globe, Handshake, Hourglass, KeyRound, Landmark,
   Layers, ListChecks, Lock, Menu, MessageSquareText, Moon, Phone, Receipt, RefreshCw, Route, Scale, SearchCheck, Send, ShieldAlert,
   Sun, Timer, TrendingUp, UserRound, Wallet, X, BookOpen, Bot, BrainCircuit, Calendar, Check, ChevronDown,
@@ -27,7 +27,7 @@ const BRAND_ICONS: Partial<Record<IconName, LucideIcon>> = {
   "scroll-text": ScrollText, search: Search, "settings-2": Settings2, "shield-check": ShieldCheck,
   "sliders-horizontal": SlidersHorizontal, sparkles: Sparkles, table: Table, tag: Tag, target: Target,
   users: Users, video: Video, workflow: Workflow,
-  award: Award, ban: Ban, "badge-check": BadgeCheck, briefcase: Briefcase, "building-2": Building2, "calendar-check": CalendarCheck,
+  "arrow-left": ArrowLeft, award: Award, ban: Ban, "badge-check": BadgeCheck, briefcase: Briefcase, "building-2": Building2, "calendar-check": CalendarCheck,
   "circle-alert": CircleAlert, "circle-check": CircleCheck, "circle-x": CircleX, "clipboard-list": ClipboardList, coins: Coins,
   compass: Compass, factory: Factory, "file-check": FileCheck, "file-search": FileSearch, "file-spreadsheet": FileSpreadsheet,
   globe: Globe, handshake: Handshake, hourglass: Hourglass, "key-round": KeyRound, landmark: Landmark, layers: Layers,

@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { Button, FeatureCard, GlassCard, IconList, SectionHeading, StepCard } from "@ds/components";
 import { Glow, Section } from "@ds/patterns";
-import { company, differentials, founder } from "@/content/site";
+import { company, differentials, founder, seo } from "@/content/site";
 import { CtaSection } from "../_components/CtaSection";
 import styles from "../_components/site.module.css";
 
-export const metadata: Metadata = {
-  title: "Sobre",
-  description: "A GLDN Tecnologia nasce de 16 anos no ecossistema Microsoft Dynamics e de formação Lean para fazer o Copilot gerar retorno mensurável.",
-  alternates: { canonical: "/sobre" },
-};
+export const metadata: Metadata = pageMetadata({ ...seo.sobre, path: "/sobre" });
 
 const kaizen = [
   { number: "01", title: "Mapear", description: "Uma semana dentro de uma área, acompanhando o fluxo real do trabalho (Gemba)." },

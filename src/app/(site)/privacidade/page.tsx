@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { SectionHeading } from "@ds/components";
 import { Section } from "@ds/patterns";
-import { company } from "@/content/site";
+import { company, seo } from "@/content/site";
 import styles from "./privacidade.module.css";
 
-export const metadata: Metadata = {
-  title: "Política de privacidade",
-  description: "Como a GLDN Tecnologia trata os dados enviados pelo site, conforme a LGPD.",
-  alternates: { canonical: "/privacidade" },
-};
+export const metadata: Metadata = pageMetadata({ ...seo.privacidade, path: "/privacidade" });
 
 export default function PrivacyPage() {
   return (

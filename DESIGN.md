@@ -456,6 +456,9 @@ importada de `@ds/components`. Catálogo completo com todos os estados: rota
   dourado curto sob o ativo; menu hambúrguer até 1180px).
 - **ThemeToggle** — pílula com ícone sol/lua; troca escuro/claro e lembra a escolha.
 - **IconList** — lista com ícone de linha à esquerda (escopo, premissas, benefícios).
+- **Prose** — texto longo de artigos: `h2` em Cinzel, `h3` em rótulo dourado, marcadores em ouro,
+  citações em vidro dourado (nunca borda lateral), largura de leitura de 720px.
+- **ArticleCard** — chamada de artigo em vidro; no hover o título fica dourado e a seta avança.
 - **Icon** — Lucide outline (traço 2px), herdando `currentColor`. Ouro sobre escuro em
   cards de feature; nunca preenchido, nunca multicolorido.
 - **Logo** — use o componente ou os SVGs em `design-system/assets`; nunca redesenhe. Os três

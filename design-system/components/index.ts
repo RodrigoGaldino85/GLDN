@@ -9,10 +9,12 @@ export { SectionHeading, type SectionHeadingProps } from "./display/SectionHeadi
 export { StatBlock, type StatBlockProps } from "./display/StatBlock";
 export { Tag, type TagProps } from "./display/Tag";
 export { IconList, type IconListProps, type IconListItem } from "./display/IconList";
+export { Prose, type ProseProps } from "./display/Prose";
 export { GlassCard, type GlassCardProps, type GlassPadding, type GlassRadius } from "./cards/GlassCard";
 export { FeatureCard, type FeatureCardProps } from "./cards/FeatureCard";
 export { StepCard, type StepCardProps } from "./cards/StepCard";
 export { PlanCard, type PlanCardProps, type PlanFeature } from "./cards/PlanCard";
+export { ArticleCard, type ArticleCardProps } from "./cards/ArticleCard";
 export { Input, type InputProps } from "./forms/Input";
 export { Textarea, type TextareaProps } from "./forms/Textarea";
 export { Select, type SelectProps, type SelectOption } from "./forms/Select";
