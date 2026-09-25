@@ -41,16 +41,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Material interno — não versionar
+# Material interno — não versionar (o site não depende destes arquivos)
 /Documents/
+/design-system-export/
 /design-system-export.zip
-
-# Material interno — não versionar
-/design-system-export.zip
-
-# Material interno — não versionar
-/design-system
-
-# Material interno — não versionar
-/Documents/
-/design-system

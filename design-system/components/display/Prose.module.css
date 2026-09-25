@@ -1,0 +1,43 @@
+/* Long-form text (articles, legal pages): headings, lists, quotes, tables and code from Markdown. */
+.prose { max-width: var(--measure-prose); color: var(--text-body); font-size: var(--fs-body-l); line-height: var(--lh-body); font-weight: var(--fw-light); overflow-wrap: break-word; }
+.prose > * + * { margin-top: var(--space-5); }
+.prose > :first-child { margin-top: 0; }
+
+.prose h2 { margin: var(--space-12) 0 0; font-family: var(--font-display); font-weight: var(--fw-bold); font-size: var(--fs-h3); line-height: var(--lh-heading); letter-spacing: var(--ls-heading); color: var(--text-strong); text-wrap: balance; }
+.prose h3 { margin: var(--space-8) 0 0; font-family: var(--font-body); font-weight: var(--fw-semibold); font-size: var(--fs-card); letter-spacing: var(--ls-caps-s); text-transform: uppercase; color: var(--text-accent); }
+.prose h2 + *, .prose h3 + * { margin-top: var(--space-3); }
+.prose p { margin-bottom: 0; }
+.prose strong { color: var(--text-strong); font-weight: var(--fw-semibold); }
+.prose em { font-style: italic; }
+
+.prose a { color: var(--text-accent); text-decoration: underline; text-decoration-color: var(--border-accent); text-underline-offset: var(--space-1); }
+.prose a:hover { color: var(--text-accent-hover); text-decoration-color: currentColor; }
+.prose a:focus-visible { outline: none; box-shadow: var(--focus-ring); border-radius: var(--radius-xs); }
+
+.prose ul, .prose ol { padding-left: var(--space-6); margin-bottom: 0; }
+.prose li + li { margin-top: var(--space-2); }
+.prose ul li::marker { color: var(--accent); }
+.prose ol li::marker { color: var(--text-accent); font-family: var(--font-display); font-weight: var(--fw-bold); }
+
+.prose blockquote {
+  margin-left: 0; margin-right: 0; padding: var(--space-5) var(--space-6); border-radius: var(--radius-md);
+  background: var(--surface-accent); border: var(--border-hairline) solid var(--border-accent-soft); color: var(--text-strong);
+}
+.prose blockquote > :first-child { margin-top: 0; }
+.prose blockquote > :last-child { margin-bottom: 0; }
+
+.prose code { font-family: var(--font-mono); font-size: var(--fs-body-s); padding: var(--space-0_5) var(--space-1_5); border-radius: var(--radius-xs); background: var(--surface-tag); border: var(--border-hairline) solid var(--border-subtle); color: var(--text-strong); }
+.prose pre { overflow-x: auto; padding: var(--space-4) var(--space-5); border-radius: var(--radius-md); background: var(--bg-inset); border: var(--border-hairline) solid var(--border-subtle); }
+.prose pre code { padding: 0; border: none; background: none; }
+
+.prose hr { border: none; width: var(--size-rule); height: var(--size-rule-weight); background: var(--accent); margin: var(--space-10) 0; }
+
+.prose table { width: 100%; border-collapse: collapse; font-size: var(--fs-body-s); display: block; overflow-x: auto; }
+.prose th, .prose td { text-align: left; padding: var(--space-2_5) var(--space-3); border-bottom: var(--border-hairline) solid var(--border-subtle); vertical-align: top; }
+.prose th { font-weight: var(--fw-semibold); color: var(--text-strong); font-size: var(--fs-label); letter-spacing: var(--ls-caps); text-transform: uppercase; }
+
+.prose img { max-width: 100%; height: auto; border-radius: var(--radius-md); border: var(--border-hairline) solid var(--border-subtle); }
+
+@media (max-width: 640px) {
+  .prose { font-size: var(--fs-body); }
+}
