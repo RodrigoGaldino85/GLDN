@@ -11,7 +11,7 @@ export const company = {
   tagline: "Soluções em Copilot & IA para empresas",
   url: "https://gldntech.com.br",
   email: "contato@gldntech.com.br",
-  linkedin: "https://www.linkedin.com/company/gldn",
+  linkedin: "https://www.linkedin.com/company/gldntech",
   founder: "Rodrigo Galdino",
   description:
     "Fazemos o Microsoft Copilot da sua empresa gerar retorno mensurável, com segurança e custo sob controle — em qualquer sistema que você já usa, Dynamics incluído.",
